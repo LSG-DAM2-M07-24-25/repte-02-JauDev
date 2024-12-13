@@ -21,13 +21,13 @@ fun EntryPoint(navigationController: NavController) {
         composable(Routes.Screen2.route) { CharacterScreen(navigationController) }
 
         composable(Routes.Screen3.route) { backStackEntry ->
-            val character = backStackEntry.arguments?.getInt("character") ?: 0
+            val character = backStackEntry.arguments?.getString("character") ?: "goku"
             val characterViewModel = remember { CharacterViewModel(character) }
             NameScreen(navigationController, characterViewModel)
         }
 
         composable(Routes.Screen4.route) { backStackEntry ->
-            val character = backStackEntry.arguments?.getInt("character") ?: 0
+            val character = backStackEntry.arguments?.getString("character") ?: "goku"
             val name = backStackEntry.arguments?.getString("name") ?: "John Doe"
             ResultScreen(navigationController, character, name)
         }

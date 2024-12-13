@@ -25,11 +25,12 @@ import com.example.repte2.R
 import com.example.repte2.Routes
 import com.example.repte2.viewModel.CharacterViewModel
 
+val characterViewModel = CharacterViewModel("goku")
+
 @Composable
 fun CharacterScreen(navController: NavController) {
-    val characters = listOf(1,2,3,4,5,6)
+    val characters = listOf("goku","gomah","masked_majin","piccolo","supreme","vegeta")
     val charactersGroups = characters.chunked(3)
-    val characterViewModel = CharacterViewModel(6)
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -50,14 +51,14 @@ fun CharacterScreen(navController: NavController) {
                 horizontalArrangement = Arrangement.Center
             ) {
                 items(group) { character ->
-                    CharacterImage(character, characterViewModel)
+                    CharacterImage(character)
                 }
             }
         }
 
         Button(
             modifier = Modifier.padding(16.dp).width(350.dp).height(75.dp),
-            onClick = { navController.navigate(Routes.Screen3.createRoute(characterViewModel.character)) }
+            onClick = { navController.navigate(Routes.Screen3.createRoute(characterViewModel.character.value)) }
         ) {
             Text(text = "Continuar")
         }
@@ -65,8 +66,7 @@ fun CharacterScreen(navController: NavController) {
 }
 
 @Composable
-fun CharacterImage(a: Int, characterViewModel: CharacterViewModel) {
-
+fun CharacterImage(a: String) {
     Button(
         onClick = { characterViewModel.updateCharacter(a) },
         modifier = Modifier
@@ -86,14 +86,14 @@ fun CharacterImage(a: Int, characterViewModel: CharacterViewModel) {
 }
 
 @Composable
-fun CharacterNumberDrawable(a: Int): Int {
+fun CharacterNumberDrawable(a: String): Int {
     return when (a) {
-        1 -> R.drawable.goku
-        2 -> R.drawable.gomah
-        3 -> R.drawable.masked_majin
-        4 -> R.drawable.piccolo
-        5 -> R.drawable.vegeta
-        6 -> R.drawable.supreme
+        "goku" -> R.drawable.goku
+        "gomah" -> R.drawable.gomah
+        "masked_majin" -> R.drawable.masked_majin
+        "piccolo" -> R.drawable.piccolo
+        "vegeta" -> R.drawable.vegeta
+        "supreme" -> R.drawable.supreme
         else -> {
             R.drawable.dragonball_daima_logo
         }

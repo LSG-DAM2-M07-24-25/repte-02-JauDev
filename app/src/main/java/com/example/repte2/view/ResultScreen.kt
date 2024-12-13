@@ -20,7 +20,7 @@ import com.example.repte2.R
 import com.example.repte2.Routes
 
 @Composable
-fun ResultScreen(navController: NavController, character: Int, name: String) {
+fun ResultScreen(navController: NavController, character: String, name: String) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -58,16 +58,16 @@ fun ResultScreen(navController: NavController, character: Int, name: String) {
 }
 
 @Composable
-fun characterNumberDrawable(a: Int): Int {
+fun characterNumberDrawable(a: String): Int {
     return when (a) {
-        1 -> R.drawable.goku
-        2 -> R.drawable.gomah
-        3 -> R.drawable.masked_majin
-        4 -> R.drawable.piccolo
-        5 -> R.drawable.vegeta
-        6 -> R.drawable.supreme
+        "goku" -> R.drawable.goku
+        "gomah" -> R.drawable.gomah
+        "masked_majin" -> R.drawable.masked_majin
+        "piccolo" -> R.drawable.piccolo
+        "vegeta" -> R.drawable.vegeta
+        "supreme" -> R.drawable.supreme
         else -> {
-            R.drawable.goku
+            R.drawable.dragonball_daima_logo
         }
     }
 }

@@ -44,13 +44,13 @@ fun NameScreen(navController: NavController, characterViewModel: CharacterViewMo
         TextField(
             value = name,
             onValueChange = { name = it },
-            label = { Text("Nom del personatge") },
+            label = { Text("Nom del personatge (${characterViewModel.character.value})") },
             modifier = Modifier.width(300.dp),
         )
 
         Button(
             modifier = Modifier.padding(16.dp).width(350.dp).height(75.dp),
-            onClick = { navController.navigate(Routes.Screen4.createRoute(characterViewModel.character, name)) }
+            onClick = { navController.navigate(Routes.Screen4.createRoute(characterViewModel.character.value, name)) }
         ) {
             Text(text = "Mostrar")
         }
