@@ -1,5 +1,6 @@
 package com.example.repte2.view
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -19,7 +20,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.repte2.R
 import com.example.repte2.Routes
@@ -60,7 +63,11 @@ fun CharacterScreen(navController: NavController) {
             modifier = Modifier.padding(16.dp).width(350.dp).height(75.dp),
             onClick = { navController.navigate(Routes.Screen3.createRoute(characterViewModel.character.value)) }
         ) {
-            Text(text = "Continuar")
+            Text(
+                text = "Continuar",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold
+            )
         }
     }
 }
@@ -68,20 +75,21 @@ fun CharacterScreen(navController: NavController) {
 @Composable
 fun CharacterImage(a: String) {
     Button(
-        onClick = { characterViewModel.updateCharacter(a) },
+        onClick = {
+            characterViewModel.updateCharacter(a)
+        },
         modifier = Modifier
             .size(150.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent,
-        ),
+            containerColor = Color.Transparent
+        )
     ) {
         Image(
             painter = painterResource(id = CharacterNumberDrawable(a)),
             contentDescription = "Character",
             modifier = Modifier
                 .width(100.dp)
-                .height(100.dp)
-        )
+                .height(100.dp))
     }
 }
 

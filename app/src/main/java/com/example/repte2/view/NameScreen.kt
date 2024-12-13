@@ -18,7 +18,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.repte2.R
 import com.example.repte2.Routes
@@ -52,7 +54,11 @@ fun NameScreen(navController: NavController, characterViewModel: CharacterViewMo
             modifier = Modifier.padding(16.dp).width(350.dp).height(75.dp),
             onClick = { navController.navigate(Routes.Screen4.createRoute(characterViewModel.character.value, name)) }
         ) {
-            Text(text = "Mostrar")
+            Text(
+                text = "Mostrar",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold
+            )
         }
     }
 }

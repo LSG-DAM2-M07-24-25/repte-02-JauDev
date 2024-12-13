@@ -11,12 +11,4 @@ class NameViewModel(character: String, name: String) : ViewModel() {
     val name: MutableLiveData<String> by lazy {
         MutableLiveData<String>(name)
     }
-
-    fun updateCharacter(character: String) {
-        this.character.value = character
-    }
-
-    fun updateName(name: String) {
-        this.name.value = name
-    }
 }

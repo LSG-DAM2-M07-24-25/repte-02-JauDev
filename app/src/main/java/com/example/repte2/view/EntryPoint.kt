@@ -9,6 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.repte2.Routes
 import com.example.repte2.viewModel.CharacterViewModel
+import com.example.repte2.viewModel.NameViewModel
 
 @Composable
 fun EntryPoint(navigationController: NavController) {
@@ -29,7 +30,8 @@ fun EntryPoint(navigationController: NavController) {
         composable(Routes.Screen4.route) { backStackEntry ->
             val character = backStackEntry.arguments?.getString("character") ?: "goku"
             val name = backStackEntry.arguments?.getString("name") ?: "John Doe"
-            ResultScreen(navigationController, character, name)
+            val nameViewModel = remember { NameViewModel(character, name) }
+            ResultScreen(navigationController, nameViewModel)
         }
     }
 }
